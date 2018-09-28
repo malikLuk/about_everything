@@ -5,7 +5,7 @@
  * избежать такого разделения общих ресурсов, предоставляя каждому потоку свой экземпляр с помощью вспомогательного класса
  * ThreadLocal. Например, класс SimpleDateFormat не является потокобезопасным. Допустим, имеется следующая статическая
  * переменная:
- *  public static final SimpleDateFormat dateFormat = new SimpleDateFormat(""yyyy-MM-dd);
+ *  public static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
  * И есть операция, наподобие такой:
  *  String dateStamp = dateFormat.format(new Date());
  * Если в двух потоках выполняется такая операция, то ее результат может превратиться в мусор, поскольку внутренние
@@ -31,5 +31,11 @@
 
 package multithreading.bank;
 
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
 public class ThreadLocalVars {
+
+    Random random = ThreadLocalRandom.current();
+
 }
