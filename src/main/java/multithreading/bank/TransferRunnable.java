@@ -1,8 +1,5 @@
 package multithreading.bank;
 
-/**
- * Created by Lukmanov.MN on 19.09.2018.
- */
 public class TransferRunnable implements Runnable {
 
     Bank bank;

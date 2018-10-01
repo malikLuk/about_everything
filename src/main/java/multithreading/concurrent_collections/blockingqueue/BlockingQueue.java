@@ -38,11 +38,35 @@
  * "последний чемодан" на ленте выдачи багажа). Когда поисковой поток получает такой объект, он возвращает его обратно и
  * завершается.
  * Следует отметить, что в данном примере программы не требуется никакой явной синхронизации, так как в качестве
- * синхронизирующего механизма используется сама структура очереди (802).
+ * синхронизирующего механизма используется сама структура очереди. Реализовано это дело в BlockingQueueTest.
+ *
+ * ArrayBlockingQueue(int capacity)
+ * ArrayBlockingQueue(int capacity, boolean fair)
+ * Конструируют блокирующую очередь заданной емкости с установленным правилом равноправия блокировки. Очередь основана
+ * на массиве.
+ *
+ * LinkedBlockingQueue()
+ * LinkedBlockingDeque()
+ * Конструируют неограниченную блокирующую одностороннюю или двустороннюю очередь. Очередь основана на связном списке.
+ *
+ * LinkedBlockingQueue(int capacity)
+ * LinkedBlockingDeque(int capacity)
+ * Тоже самое, только задана емкость (максимальное число элементов).
+ *
+ * DelayQueue()
+ * Коструирует неограниченную блокирующую очередь элементов типа Delayed. Из очереди могут быть удалены только элементы,
+ * время задержки которых истекло.
+ *
+ * PriorityBlockingQueue()
+ * PriorityBlockingQueue(int initialCapacity)
+ * PriorityBlockingQueue(int initialCapacity, Comparator<? super E> comparator)
+ * Конструирует очередь с приоритетами, основанную на Куче(почитать, сука), где
+ *          initialCapacity - исходная емкость, по умолчанию 11
+ *          comparator - компаратор для сравнения элементов и назначения им "приоритетов"
  *
  * */
 
-package multithreading.blockingqueue;
+package multithreading.concurrent_collections.blockingqueue;
 
-public class BlockedQueue {
+public class BlockingQueue {
 }
