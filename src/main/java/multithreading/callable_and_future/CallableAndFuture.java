@@ -5,7 +5,7 @@
  *  public interface Callable<V> {
  *      V call() throws Exception;
  *  }
- * параметр типа (это V) обозначает ип возвращаемого значения. То есть Callable<Integer> после вызова call() вернет
+ * Параметр типа (это V) обозначает тип возвращаемого значения. То есть Callable<Integer> после вызова call() вернет
  * значение типа Integer. А сохранение результатов асинхронного вычисления обеспечивает интерфейс Future. В частности,
  * вычисление можно начать, предоставив кому-нибудь другому объект типа Future, а затем просто забыть о нем. Владелец
  * объекта типа Future может получить результат, когда он будет готов. У интерфейса Future есть некоторые важные
@@ -24,7 +24,7 @@
  *
  * */
 
-package multithreading.callable_future;
+package multithreading.callable_and_future;
 
 public class CallableAndFuture {
 }
