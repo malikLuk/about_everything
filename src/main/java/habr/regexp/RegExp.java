@@ -37,16 +37,15 @@
  * Класс, который представляет строку, реализует механизм согласования(matching) с регулярным выражением и хранит результаты
  * этого согласования(используя реализацию методов интерфейса MatchResult). не имеет открытых конструкторов- для создания
  * объекта используется Pattern.matcher(str);
- *      // будем искать URL
- *      String regexp = "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$";
- *      String url = "http://habrahabr.ru/post/260767/";
- *      Pattern pattern = Pattern.compile(regexp);
- *      Matcher matcher = pattern.matcher(url);
+ * // будем искать URL
+ * String regexp = "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$";
+ * String url = "http://habrahabr.ru/post/260767/";
+ * Pattern pattern = Pattern.compile(regexp);
+ * Matcher matcher = pattern.matcher(url);
  * Однако, результатов у нас нет. Чтобы их получить, нужно воспользоваться методом find. Можно также использовать matches(),
  * который вернет true только тогда, когда вся строка соответствует заданному регулярному выражению, в отличии от find,
  * который ищет подстроку, уоторая будет удовлетворять регулярному выражению. Сравнение работы find() и matches() на
  * рисунке 3.png
- *
  */
 
 package habr.regexp;
@@ -57,11 +56,24 @@ import java.util.regex.Pattern;
 public class RegExp {
 
     public static void main(String[] args) {
-        String regexp = "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$";
-        String url = "http://habrahabr.ru/post/260767/";
+        // IP адрес
+        String regexp = "(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)";
+// для сравнения работы find() и matches()
+        String goodIp = "192.168.0.3";
+        String badIp = "192.168.0.3g";
+
         Pattern pattern = Pattern.compile(regexp);
-        Matcher matcher = pattern.matcher(url);
-        System.out.println();
+
+        Matcher matcher = pattern.matcher(goodIp);
+// matches() - true, find() - true
+        matcher = pattern.matcher(badIp);
+// matches() - false, find() - true
+
+// а теперь получим дополнительную информацию
+        System.out.println(matcher.find() ?
+                "I found '" + matcher.group() + "' starting at index " + matcher.start() + " and ending at index " + matcher.end() + "." :
+                "I found nothing!");
+// I found the text '192.168.0.3' starting at index 0 and ending at index 11.
     }
 
 }
