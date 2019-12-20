@@ -6,7 +6,7 @@ import java.util.concurrent.*;
 
 /**
  * Created by Lukmanov.MN on 10.10.2018.
- * Тоже считаем входения ключевого слова
+ * Тоже считаем вхождения ключевого слова
  */
 public class ThreadPoolTest {
 
