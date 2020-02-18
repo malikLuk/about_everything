@@ -88,5 +88,85 @@
 
 package multithreading.javautilconcurrentpack;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class ConcurrentPack {
+
+    int a = 0;
+    Lock lock = new ReentrantLock();
+
+    public static void main(String[] args) {
+        int b = 1;
+        System.out.println(++b);
+        System.out.println(b);
+        ConcurrentPack p = new ConcurrentPack();
+        new Thread(() -> {
+            try {
+                for (int i = 0; i < 10; i++) {
+                    Thread.sleep(500);
+                    p.incA();
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+        new Thread(() -> {
+            try {
+
+                System.out.println(p.getA());
+                Thread.sleep(250);
+                System.out.println(p.getA());
+                Thread.sleep(250);
+                System.out.println(p.getA());
+                Thread.sleep(250);
+                System.out.println(p.getA());
+                Thread.sleep(250);
+                System.out.println(p.getA());
+                Thread.sleep(250);
+                System.out.println(p.getA());
+                Thread.sleep(250);
+                System.out.println(p.getA());
+                Thread.sleep(250);
+                System.out.println(p.getA());
+                Thread.sleep(250);
+                System.out.println(p.getA());
+                Thread.sleep(250);
+                System.out.println(p.getA());
+                Thread.sleep(250);
+                System.out.println(p.getA());
+                Thread.sleep(250);
+                System.out.println(p.getA());
+                Thread.sleep(250);
+                System.out.println(p.getA());
+                Thread.sleep(250);
+                System.out.println(p.getA());
+                Thread.sleep(250);
+                System.out.println(p.getA());
+                Thread.sleep(250);
+                System.out.println(p.getA());
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+
+    synchronized void incA() throws InterruptedException {
+//        lock.lock();
+        Thread.sleep(10000);
+        a++;
+//        lock.unlock();
+    }
+
+    synchronized int getA() {
+//        try {
+//            lock.lock();
+            return a;
+//        }
+//        finally {
+//            lock.unlock();
+//        }
+    }
 }

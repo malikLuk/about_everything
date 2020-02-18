@@ -69,7 +69,7 @@ public class MatchCounter implements Callable<Integer> {
         return count;
     }
 
-    public boolean search(File file) {
+    private boolean search(File file) {
         try (Scanner in = new Scanner(file)) {
             boolean found = false;
             while (!found && in.hasNextLine()) {

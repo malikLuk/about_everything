@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.concurrent.BlockingQueue;
 
 /**
- * Перечвисляет все файлы в каталоги и его подкаталогах
+ * Перечисляет все файлы в каталоге и его подкаталогах
  * */
 public class FileEnumerationTask implements Runnable {
 
