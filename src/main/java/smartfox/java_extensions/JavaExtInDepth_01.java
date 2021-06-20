@@ -5,7 +5,7 @@
  *  - мы можем деплоить несколько джарников в одной папке Экстеншена, например зависимости или другие библиотеки. Они все вместе будут загружены
  *      одним класс лоадером.
  *  - существует специальная директория __lib__ (тоже видно на sm_ext_folder.png), куда мы также можем поместить зависимости. Таким образом мы
- *      можем решить, какие зависимости будут расшарены между разными Экстеншенами, а какие будут локлаьными для каждого конкретного.
+ *      можем решить, какие зависимости будут расшарены между разными Экстеншенами, а какие будут локальными для каждого конкретного.
  * Оба подхода могут быть полезны в зависимости от того, что нам нужно:
  *  - либы, задеплоеные в папке конкретного Экстеншена будут загружены класс лоадером Экстеншена. Это значит, что мы можем менять эти конкретные
  *      либы и никак не заденем другие Экстеншены.
@@ -42,7 +42,7 @@
  *
  *  @Override
  *  public void init() {
- *      addRequestHandler("test, TestHandler.class);
+ *      addRequestHandler("test", TestHandler.class);
  *  }
  *
  * Нужно обратить внимание на то, что каждый обработчик представлен отдельным классом, так делать и рекомендуется. Но есть альтернативный способ,
@@ -67,13 +67,13 @@
  *      public void init() {
  *          addEventHandler(SFSEventType.USER_JOIN_ZONE, ZoneEventHandler.class);
  *      }
- *
- *      public class ZoneEventHandler extends BaseServerEventHandler {
- *          @Override
- *          public void handleServerEvent(ISFSEvent event) throws SFSException {
- *              User user = (User) event.getParameter(SFSEventParam.USER);
- *              trace("Welcome new user: " + user.getName());
- *          }
+ *  }
+ *  
+ *  public class ZoneEventHandler extends BaseServerEventHandler {
+ *      @Override
+ *      public void handleServerEvent(ISFSEvent event) throws SFSException {
+ *          User user = (User) event.getParameter(SFSEventParam.USER);
+ *          trace("Welcome new user: " + user.getName());
  *      }
  *  }
  *

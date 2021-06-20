@@ -39,8 +39,6 @@
  *      http://docs2x.smartfoxserver.com/ExtensionsJava/overview и https://smartfoxserver.com/blog/how-to-create-an-extension-based-custom-login/)
  *  - Включение настройки Use custom login в конфигураторе.
  *
- *
- *
  * */
 
 package smartfox.dev_basics;
